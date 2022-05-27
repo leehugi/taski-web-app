@@ -9,7 +9,7 @@ import { taskRoutes } from './routes/task.routes.js'
 import { usersRoutes } from './routes/users.routes.js'
 import { authorize } from './controllers/authorize.controller.js'
 
-const client = new MongoClient(uri)
+const client = new MongoClient(process.env.MONGODB_URI)
 await client.connect()
 export const usersDB = await client.db('Users').collection('users')
 export const tasksDB = await client.db('Tasks').collection('tasks')
