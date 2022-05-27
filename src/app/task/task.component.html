@@ -1,0 +1,12 @@
+<mat-card class="item" *ngIf="task" (dblclick)="edit.emit(task)">
+    <h2>{{ task.title }}</h2>
+    <!-- <p>{{task.userName}}</p> -->
+    <p>
+      <mat-icon>date_range</mat-icon>
+      {{task.finishDate | date: 'dd/MM/yyyy'}}
+    </p>
+    <p>{{ task.description }}</p>
+    <p *ngIf="task.priority == 0" style="color: red; border: 2px solid red; padding: 4px; width: fit-content;">HIGH</p>
+    <p *ngIf="task.priority == 1" style="color: rgb(204, 204, 6); border: 2px solid rgb(204, 204, 6); padding: 4px; width: fit-content;">MEDIUM</p>
+    <p *ngIf="task.priority == 2" style="color: green; border: 2px solid green; padding: 4px; width: fit-content;">LOW</p>
+  </mat-card>

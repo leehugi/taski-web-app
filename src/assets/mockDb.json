@@ -1,0 +1,9 @@
+{
+    "login": {
+        "status": 200,
+        "message": "ok",
+        "body": {
+            "userName": "mock user"
+        }
+    }
+}
