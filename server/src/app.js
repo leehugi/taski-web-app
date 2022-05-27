@@ -16,6 +16,14 @@ export const tasksDB = await client.db('Tasks').collection('tasks')
 
 const app = express()
 
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist/taski-web-app'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/taski-web-app/index.html'));
+});
+
 app.use(cors())
 
 app.use(bodyParser.json())
@@ -30,6 +38,6 @@ app.use('/', taskRoutes)
 
 app.use('/', usersRoutes)
 
-app.listen("1000", 'localhost', function(){
+app.listen(process.env.PORT || "1000", 'localhost', function(){
     console.log("server is listening on port 1000")
 });
