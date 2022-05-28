@@ -44,6 +44,6 @@ app.use('/', taskRoutes)
 
 app.use('/', usersRoutes)
 
-app.listen(process.env.PORT || "1000", 'localhost', function(){
+app.listen(process.env.PORT || 1000, '0.0.0.0', function(){
     console.log("server is listening on port 1000")
 });
