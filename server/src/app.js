@@ -3,18 +3,24 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import { MongoClient } from 'mongodb'
 import bearerToken from "express-bearer-token"
+import path from 'path';
+import {fileURLToPath} from 'url';
 
 import { loginRoutes } from './routes/login.routes.js'
 import { taskRoutes } from './routes/task.routes.js'
 import { usersRoutes } from './routes/users.routes.js'
 import { authorize } from './controllers/authorize.controller.js'
 
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express()
+
 const client = new MongoClient(process.env.MONGODB_URI)
 await client.connect()
 export const usersDB = await client.db('Users').collection('users')
 export const tasksDB = await client.db('Tasks').collection('tasks')
-
-const app = express()
 
 app.use(cors())
 // Serve only the static files form the dist directory
