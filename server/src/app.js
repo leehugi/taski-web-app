@@ -16,6 +16,7 @@ export const tasksDB = await client.db('Tasks').collection('tasks')
 
 const app = express()
 
+app.use(cors())
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/taski-web-app'));
 
@@ -24,7 +25,6 @@ app.get('/*', function(req,res) {
 res.sendFile(path.join(__dirname+'/dist/taski-web-app/index.html'));
 });
 
-app.use(cors())
 
 app.use(bodyParser.json())
 
