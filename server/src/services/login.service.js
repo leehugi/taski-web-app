@@ -1,7 +1,9 @@
 import jwt from 'jsonwebtoken'
 
 import { usersDB } from "../app.js"
-import {secret} from '../controllers/authorize.controller.js'
+// import {secret} from '../controllers/authorize.controller.js'
+import { envValue } from '../app.js'
+
 
 export const login = async (user) => {
     try {
@@ -20,7 +22,7 @@ export const login = async (user) => {
 function createToken(password){
     return jwt.sign(
         {password},
-        secret,
+        envValue.SECRET,
         {expiresIn:"2d"}
         )
 }

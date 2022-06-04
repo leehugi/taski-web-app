@@ -5,12 +5,16 @@ import { MongoClient } from 'mongodb'
 import bearerToken from "express-bearer-token"
 import path from 'path';
 import {fileURLToPath} from 'url';
+import dotenv from 'dotenv';
 
 import { loginRoutes } from './routes/login.routes.js'
 import { taskRoutes } from './routes/task.routes.js'
 import { usersRoutes } from './routes/users.routes.js'
 import { authorize } from './controllers/authorize.controller.js'
 
+dotenv.config()
+
+export const envValue = process.env
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
