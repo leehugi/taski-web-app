@@ -6,7 +6,8 @@ import { Observable } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 export class HTTPService {
-    basicUrl = "http://localhost:1000/";
+    // basicUrl = "http://localhost:1000/";
+    basicUrl = "https://taski-web-app.herokuapp.com/";
 
     constructor(private http: HttpClient){}
 
