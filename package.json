@@ -34,6 +34,7 @@
     "express": "^4.17.3",
     "express-bearer-token": "^2.4.0",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.6.0",
     "ngx-toastr": "^14.3.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
