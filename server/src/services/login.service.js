@@ -1,8 +1,7 @@
 import jwt from 'jsonwebtoken'
 
-import { usersDB } from "../app.js"
-// import {secret} from '../controllers/authorize.controller.js'
-import { envValue } from '../app.js'
+import { usersDB } from "../../../app.js"
+import { envValue } from '../../../app.js'
 
 
 export const login = async (user) => {

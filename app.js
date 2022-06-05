@@ -7,10 +7,10 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 import dotenv from 'dotenv';
 
-import { loginRoutes } from './routes/login.routes.js'
-import { taskRoutes } from './routes/task.routes.js'
-import { usersRoutes } from './routes/users.routes.js'
-import { authorize } from './controllers/authorize.controller.js'
+import { loginRoutes } from './server/src/routes/login.routes.js'
+import { taskRoutes } from './server/src/routes/task.routes.js'
+import { usersRoutes } from './server/src/routes/users.routes.js'
+import { authorize } from './server/src/controllers/authorize.controller.js'
 
 dotenv.config()
 
@@ -28,12 +28,7 @@ export const tasksDB = await client.db('Tasks').collection('tasks')
 
 app.use(cors())
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/taski-web-app'));
-
-app.get('/*', function(req,res) {
-    res.sendFile(path.join(__dirname+'/dist/taski-web-app/index.html' ));
-});
-
+app.use(express.static(__dirname + '/dist/task-manager'));
 
 app.use(bodyParser.json())
 
@@ -46,6 +41,10 @@ app.use('/', authorize)
 app.use('/', taskRoutes)
 
 app.use('/', usersRoutes)
+
+app.get('/*', function(req,res) {
+    res.sendFile(path.join(__dirname +'/dist/task-manager/index.html' ));
+});
 
 app.listen(process.env.PORT || 1000, '0.0.0.0', function(){
     console.log("server is listening on port 1000")

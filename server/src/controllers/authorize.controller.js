@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-import { envValue } from '../app.js'
+import { envValue } from '../../../app.js'
 
 export const authorize = (req, res, next) => {
     try {

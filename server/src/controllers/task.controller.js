@@ -1,4 +1,4 @@
-import { tasksDB } from "../app.js"
+import { tasksDB } from "../../../app.js"
 import {ObjectId} from 'mongodb'
 
 export const getTasks = async (req, res, next) => {
