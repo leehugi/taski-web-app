@@ -46,6 +46,6 @@ app.get('/*', function(req,res) {
     res.sendFile(path.join(__dirname +'/dist/task-manager/index.html' ));
 });
 
-app.listen(process.env.PORT || 1000, '0.0.0.0', function(){
+app.listen(process.env.PORT || 1000, 'taski-web-app.herokuapp.com' || '0.0.0.0', function(){
     console.log("server is listening on port 1000")
 });
