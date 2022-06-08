@@ -30,7 +30,7 @@ export class ErrorHandler{
     }
 
     logout(){
-        this.routerService.routeTo("login");
+        this.routerService.routeTo("");
         localStorage.removeItem("token");
         localStorage.removeItem("userName");
     }

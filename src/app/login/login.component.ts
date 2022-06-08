@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     const token = localStorage.getItem("token");
     if(token){
       this.httpService.get("checkToken").subscribe(data =>{
-        this.routerService.routeTo("");
+        this.routerService.routeTo("home");
       }, err => {
         this.errorHandler.handleError(err);
       })
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("token", data.msg.token)
         localStorage.setItem("userName", data.msg.userName)
 
-        this.routerService.routeTo("");
+        this.routerService.routeTo("home");
       }else{
         console.log("onSubmit => else")
       }
