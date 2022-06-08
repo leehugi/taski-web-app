@@ -32,7 +32,7 @@ app.use(express.static(__dirname + '/dist/task-manager'));
 
 app.use(bodyParser.json())
 
-app.use('/api', loginRoutes)
+app.use('/', loginRoutes)
 
 app.use(bearerToken())
 
