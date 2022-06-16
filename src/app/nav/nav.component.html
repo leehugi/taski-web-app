@@ -2,6 +2,7 @@
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">
         Taski</span>
+      <span class="navbar-nav mr-auto" *ngIf="userNameService.loggedInUser" style="color: white;">{{"Welcome " + userNameService.loggedInUser}}</span>
       <form class="d-flex">
         <button class="btn btn-outline-info" type="logout" (click)="logout()">Logout</button>
       </form>

@@ -4,6 +4,7 @@ import { map, Subscription } from 'rxjs';
 import { ErrorHandler } from '../services/error-handler.service';
 import { HTTPService } from '../services/http.service';
 import { RouterService } from '../services/router.service';
+import { UserNameService } from '../services/user-name.service';
 import { User } from './user.model';
 
 
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private httpService: HTTPService, 
               private routerService: RouterService,
-              private errorHandler: ErrorHandler) {}
+              private errorHandler: ErrorHandler,
+              private userNameService: UserNameService) {}
 
   ngOnInit() {
     const token = localStorage.getItem("token");
@@ -41,6 +43,8 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem("token", data.msg.token)
         localStorage.setItem("userName", data.msg.userName)
+
+        this.userNameService.loggedInUser = data.msg.userName;
 
         this.routerService.routeTo("home");
       }else{
